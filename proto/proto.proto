@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "app/proto";
+
+message Request {
+	repeated int64 numbers = 1;
+	// int64 limit = 2;
+}
+
+message Response {
+
+	int64 number = 1;
+}
+
+service Math {
+
+	rpc Max(Request) returns (stream Response) {}
+}
